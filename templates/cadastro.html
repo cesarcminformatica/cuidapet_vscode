@@ -1,0 +1,24 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CuidaPet - Cadastro</title>
+  <link rel="stylesheet" href="{% static 'css/cadastro.css' %}" />
+</head>
+<body>
+  <main>
+    <h1>Bem-vindo ao CuidaPet</h1>
+    <p>Selecione como deseja se cadastrar:</p>
+    <p>
+      <a href="{% url 'tutor' %}">Cadastrar como Tutora/Tutor</a>
+       •
+      <a href="{% url 'cuidador' %}">Cadastrar como Cuidador</a>
+       •
+      <a href="{% url 'login' %}">Fazer Login</a>
+    </p>
+  </main>
+</body>
+</html>

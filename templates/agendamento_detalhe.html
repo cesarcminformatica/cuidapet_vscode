@@ -1,0 +1,33 @@
+
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8"><title>Detalhe do Agendamento</title></head>
+<body>
+  <h1>Agendamento #{{ ag.id }}</h1>
+  <p><strong>Pet:</strong> {{ ag.pet.nome }} ({{ ag.pet.get_especie_display }})</p>
+  <p><strong>Cuidador:</strong> {{ ag.cuidador.usuario.first_name }}</p>
+  <p><strong>Período:</strong> {{ ag.data_inicio|date:"d/m/Y H:i" }} — {{ ag.data_fim|date:"d/m/Y H:i" }}</p>
+  <p><strong>Forma de pagamento:</strong> {{ ag.get_forma_pagamento_display }}</p>
+  <p><strong>Valor total:</strong> R$ {{ ag.valor_total }}</p>
+
+  <hr>
+  <h2>Mensagens e fotos</h2>
+  <form method="post" action="{% url 'enviar_atualizacao' ag.id %}" enctype="multipart/form-data">{% csrf_token %} {{ form_atualizacao.as_p }} <button type="submit">Enviar</button></form>
+  <ul>
+    {% for u in atualizacoes %}
+      <li>
+        <strong>{{ u.autor.first_name|default:u.autor.username }}</strong> — <small>{{ u.criado_em|date:"d/m/Y H:i" }}</small><br>
+        {% if u.mensagem %}<div>{{ u.mensagem }}</div>{% endif %}
+        {% if u.imagem %}<div><img src="{{ u.imagem.url }}" alt="imagem" style="max-width:280px"></div>{% endif %}
+      </li>
+    {% empty %}<li>Nenhuma atualização ainda.</li>{% endfor %}
+  </ul>
+
+  {% if avaliacao %}
+    <h2>Sua avaliação</h2>
+    <p>Nota: {{ avaliacao.nota }}/5</p>
+    <p>{{ avaliacao.comentario }}</p>
+  {% else %}
+    <p><a href="{% url 'avaliar_agendamento' ag.id %}">Avaliar serviço</a></p>
+  {% endif %}
+
+  <p><a href="{% url 'agendamentos_list' %}">Voltar</a></p>
+</body></html>

@@ -1,0 +1,19 @@
+
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8"><title>Minha Área</title></head>
+<body>
+  <h1>Bem-vinda(o), {{ request.user.first_name|default:request.user.username }}</h1>
+  <section>
+    <h2>Meus Pets</h2>
+    <a href="{% url 'pet_create' %}">Cadastrar novo pet</a>
+    <ul>{% for p in pets %}<li>{{ p.nome }} — {{ p.get_especie_display }} ({{ p.raca }})</li>{% empty %}<li>Você ainda não cadastrou pets.</li>{% endfor %}</ul>
+  </section>
+  <section>
+    <h2>Últimos agendamentos</h2>
+    <ul>
+      {% for a in agendamentos %}
+        <li>{{ a.pet.nome }} com {{ a.cuidador.usuario.first_name }} — {{ a.data_inicio|date:"d/m H:i" }} a {{ a.data_fim|date:"d/m H:i" }} — R$ {{ a.valor_total }} [<a href="{% url 'agendamento_detalhe' a.id %}">detalhes</a>]</li>
+      {% empty %}<li>Nenhum agendamento ainda.</li>{% endfor %}
+    </ul>
+  </section>
+  <p><a href="{% url 'buscar_cuidadores' %}">Buscar cuidadores</a></p>
+</body></html>

@@ -1,0 +1,18 @@
+
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8"><title>Cuidadores</title></head>
+<body>
+  <h1>Cuidadores</h1>
+  <form method="get">
+    <input name="q" value="{{ q }}" placeholder="Pesquisar por nome/descrição...">
+    <input name="cidade" value="{{ cidade }}" placeholder="Cidade">
+    <select name="uf"><option value="">UF</option>{% for sigla, nome in cuidadores.model.UF.choices %}<option value="{{ sigla }}" {% if uf == sigla %}selected{% endif %}>{{ sigla }}</option>{% endfor %}</select>
+    <button>Pesquisar</button> <a href="{% url 'cuidadores_list' %}">Limpar</a>
+  </form>
+  <table border="1" cellpadding="6"><thead><tr><th>Nome</th><th>Descrição</th><th>Valor/diária</th><th>Cidade/UF</th></tr></thead>
+  <tbody>
+    {% for c in cuidadores %}
+      <tr><td>{{ c.usuario.first_name }}</td><td>{{ c.descricao }}</td><td>R$ {{ c.valor_diaria }}</td><td>{{ c.cidade }}/{{ c.uf }}</td></tr>
+    {% empty %}<tr><td colspan="4">Nenhum cuidador.</td></tr>{% endfor %}
+  </tbody>
+  </table>
+</body></html>

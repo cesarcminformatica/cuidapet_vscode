@@ -1,0 +1,16 @@
+[
+  {
+    "model": "cuidapet.servico",
+    "pk": 1,
+    "fields": {
+      "descricao": "CACHORRO"
+    }
+  },
+  {
+    "model": "cuidapet.servico",
+    "pk": 2,
+    "fields": {
+      "descricao": "GATO"
+    }
+  }
+]

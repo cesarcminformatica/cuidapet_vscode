@@ -1,0 +1,6 @@
+
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8"><title>Cadastro Tutor</title></head>
+<body>
+  <h1>Cadastrar Tutor</h1>
+  <form method="post">{% csrf_token %} {{ form.as_p }} <button type="submit">Cadastrar</button> <a href="{% url 'login' %}">Já tenho conta</a></form>
+</body></html>

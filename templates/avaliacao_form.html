@@ -1,0 +1,6 @@
+
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8"><title>Avaliar Serviço</title></head>
+<body>
+  <h1>Avaliar serviço de {{ ag.cuidador.usuario.first_name }}</h1>
+  <form method="post">{% csrf_token %} {{ form.as_p }} <button type="submit">Enviar avaliação</button> <a href="{% url 'agendamento_detalhe' ag.id %}">Cancelar</a></form>
+</body></html>

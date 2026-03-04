@@ -1,0 +1,7 @@
+
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8"><title>Novo Agendamento</title></head>
+<body>
+  <h1>Novo Agendamento com {{ cuidador.usuario.first_name }}</h1>
+  <form method="post">{% csrf_token %} {{ form.as_p }} <button type="submit">Confirmar</button> <a href="{% url 'buscar_cuidadores' %}">Cancelar</a></form>
+  <p>Obs.: O valor total será calculado automaticamente (diária × dias).</p>
+</body></html>

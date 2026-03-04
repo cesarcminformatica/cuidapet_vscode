@@ -1,0 +1,13 @@
+
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8"><title>Usuários</title></head>
+<body>
+  <h1>Usuários</h1>
+  <form method="get"><input name="q" value="{{ q }}" placeholder="Pesquisar por nome, email, tipo..."><button>Pesquisar</button> <a href="{% url 'usuarios_list' %}">Limpar</a></form>
+  <table border="1" cellpadding="6"><thead><tr><th>Usuário</th><th>Nome</th><th>E-mail</th><th>Tipo</th><th>Telefone</th><th>Criado</th></tr></thead>
+  <tbody>
+    {% for u in usuarios %}
+      <tr><td>{{ u.username }}</td><td>{{ u.first_name }}</td><td>{{ u.email }}</td><td>{{ u.tipo_usuario }}</td><td>{{ u.telefone }}</td><td>{{ u.date_joined|date:"d/m/Y H:i" }}</td></tr>
+    {% empty %}<tr><td colspan="6">Nenhum usuário.</td></tr>{% endfor %}
+  </tbody>
+  </table>
+</body></html>
