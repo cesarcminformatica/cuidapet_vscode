@@ -1,0 +1,79 @@
+# -------------------------------------
+# Python
+# -------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Byte-compiled
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+pythonenv/
+
+# -------------------------------------
+# Django
+# -------------------------------------
+# SQLite database
+db.sqlite3
+
+# Media (uploads)
+media/
+*/media/
+
+# Static files (collectstatic)
+staticfiles/
+static/
+
+# Django cache/logs
+*.log
+*.pot
+
+# Local settings
+local_settings.py
+
+# -------------------------------------
+# VSCode
+# -------------------------------------
+.vscode/
+.code-workspace
+
+# -------------------------------------
+# OS files
+# -------------------------------------
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux swap files
+*.swp
+*.swo
+
+# -------------------------------------
+# Node / JS (caso use)
+# -------------------------------------
+node_modules/
+npm-debug.log*
+
+# -------------------------------------
+# Env Files
+# -------------------------------------
+*.env
+.env
+.env.*
+*.sqlite3

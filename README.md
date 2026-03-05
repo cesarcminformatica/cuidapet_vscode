@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # CuidaPet — Workspace para VS Code (Jornada 1 — Mariana)
 
@@ -34,3 +35,6 @@ Acesse:
 ## Dicas
 - Cadastre **Disponibilidades** e **Serviços** para cuidadores em **/admin** para a busca funcionar.
 - Uploads ficam em `media/` (servir em DEBUG habilitado nas URLs do projeto).
+=======
+# cuidapet
+>>>>>>> 001a082866825bcb6dbf77da860a6dfdcc601b32
